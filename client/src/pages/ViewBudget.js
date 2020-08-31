@@ -1,10 +1,10 @@
 import React from 'react';
-import NavBarTwo from '../components/NavBarTwo';
+import NavBar from '../components/NavBar';
 
 const ViewBudget = () => {
     return (
        <div>
-            <NavBarTwo />
+            <NavBar />
             View items here
        </div> 
     )

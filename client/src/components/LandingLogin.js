@@ -28,9 +28,6 @@ class LandingLogin extends React.Component {
                     onChange={(event => this.setState({email:event.target.value}))}
                     value={this.state.email}
                     />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
@@ -42,7 +39,7 @@ class LandingLogin extends React.Component {
                     />
                 </Form.Group>
                 <Button variant="success" type="submit" onClick={this.handleClick}>
-                    Register
+                    Login
                 </Button>
             </Form>
         )

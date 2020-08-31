@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import LoginRegister from '../components/LandingRegister';
-import Button from 'react-bootstrap/Button'
 
 const Landing = () => {
     return (

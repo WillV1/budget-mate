@@ -1,13 +1,13 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
 
-const AddBudgetItem = () => {
+const Goals = () => {
     return (
        <div>
             <NavBar />
-            Add items here
+            Goals
        </div> 
     )
 }
 
-export default AddBudgetItem;
+export default Goals;
