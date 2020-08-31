@@ -22,21 +22,12 @@ class LandingRegister extends React.Component {
     render() {
         return (
             <Form onSubmit={this.handleFormSubmit}>
-                <Form.Group controlId="formBasicFirstName">
-                    <Form.Label>First Name</Form.Label>
+                <Form.Group controlId="formBasicName">
+                    <Form.Label>Name</Form.Label>
                     <Form.Control type="text" 
-                    placeholder="Enter First name" 
-                    onChange={(event => this.setState({first:event.target.value}))}
-                    value={this.state.first}
-                    />
-                </Form.Group>
-
-                <Form.Group controlId="formBasicLastName">
-                    <Form.Label>Last Name</Form.Label>
-                    <Form.Control type="text" 
-                    placeholder="Enter Last name" 
-                    onChange={(event => this.setState({last:event.target.value}))}
-                    value={this.state.last}
+                    placeholder="Enter name" 
+                    onChange={(event => this.setState({name:event.target.value}))}
+                    value={this.state.name}
                     />
                 </Form.Group>
 
