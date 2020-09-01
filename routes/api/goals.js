@@ -36,4 +36,68 @@ async (req, res) => {
    
 });
 
+//@route GET api/goals
+//@desc Get all goals
+//@access Private
+router.get('/', auth, async(req, res) => {
+    try {
+        const posts = await Goal.find().sort();
+        res.json(posts);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+}
+)
+
+//@route GET api/goals/:id
+//@desc Get post by id
+//@access Private
+router.get('/:id', auth, async(req, res) => {
+    try {
+        const post = await Goal.findById(req.params.id);
+        if(!post) {
+            return res.status(404).json({msg: 'Post not found'})
+        }
+        
+        res.json(post);
+    } catch (err) {
+        console.error(err.message);
+        if(err.kind === 'ObjectId') {
+            return res.status(404).json({msg: 'Post not found'})
+        }
+        res.status(500).send('Server Error');
+    }
+}
+)
+
+//@route DELETE api/goals/:id
+//@desc Delete goals by id
+//@access Private
+router.delete('/:id', auth, async(req, res) => {
+    try {
+        const post = await Goal.findById(req.params.id);
+        
+        if(!post) {
+            return res.status(404).json({msg: 'Post not found'})
+        }
+
+        //Check user
+        if(post.user.toString() !== req.user.id) {
+            return res.status(401).json({msg: 'User not authorized'})
+        } 
+
+        await post.remove();
+        
+        res.json({msg: 'Post removed'});
+    } catch (err) {
+        console.error(err.message);
+        if(err.kind === 'ObjectId') {
+            return res.status(404).json({msg: 'Post not found'})
+        }
+        res.status(500).send('Server Error');
+    }
+}
+)
+
 module.exports = router;
