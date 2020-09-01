@@ -15,7 +15,7 @@ class LandingRegister extends React.Component {
 
     }
 
-    handleClick(event){
+    handleClick(event) {
         event.preventDefault();
     }
 
@@ -24,32 +24,32 @@ class LandingRegister extends React.Component {
             <Form onSubmit={this.handleFormSubmit}>
                 <Form.Group controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" 
-                    placeholder="Enter name" 
-                    onChange={(event => this.setState({name:event.target.value}))}
-                    value={this.state.name}
+                    <Form.Control type="text"
+                        placeholder="Enter name"
+                        onChange={(event => this.setState({ name: event.target.value }))}
+                        value={this.state.name}
                     />
                 </Form.Group>
 
                 <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" 
-                    placeholder="Enter email" 
-                    onChange={(event => this.setState({email:event.target.value}))}
-                    value={this.state.email}
+                    <Form.Control type="email"
+                        placeholder="Enter email"
+                        onChange={(event => this.setState({ email: event.target.value }))}
+                        value={this.state.email}
                     />
-                    <Form.Text className="text-muted">
-                        We'll never share your email with anyone else.
-                    </Form.Text>
                 </Form.Group>
 
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" 
-                    placeholder="Password" 
-                    onChange={(event => this.setState({password:event.target.value}))}
-                    value={this.state.password}
+                    <Form.Control type="password"
+                        placeholder="Password"
+                        onChange={(event => this.setState({ password: event.target.value }))}
+                        value={this.state.password}
                     />
+                    <Form.Text id="passwordHelpBlock" muted>
+                        Must be at least six characters long.
+                    </Form.Text>
                 </Form.Group>
                 <Button variant="success" type="submit" onClick={this.handleClick}>
                     Register
