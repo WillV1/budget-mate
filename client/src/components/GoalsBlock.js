@@ -11,15 +11,15 @@ class GoalsBlock extends React.Component {
 
     handleFormSubmit = (event) => {
       event.preventDefault();
-      console.log(this.state.value);
     }
 
-    handleClick = () => {
-      const { input, goals } = this.state;
-      if (input) {
-        const nextState = [...goals, input];
-        this.setState({ goals: nextState, input: '' });
-      }
+    handleChange = (event) => {
+      this.setState({ [event.target.name]: event.target.value });
+      console.log(event.target.value)
+  }
+
+    handleClick = (event) => {
+      event.preventDefault()
     }
 
     render() {
@@ -29,11 +29,11 @@ class GoalsBlock extends React.Component {
               <Form onSubmit={this.handleFormSubmit}>
               <Form.Row>
                 <Col>
-                  <Form.Control value={this.state.input} onChange={(e) => this.setState({input: e.target.value})} placeholder="Enter goal here" />
+                  <Form.Control value={this.state.input} onChange={this.handleChange} name="goals" placeholder="Enter goal here" />
                 </Col>
               </Form.Row>
               <Button variant="success" type="submit" onClick={this.handleClick}>
-                      Add
+                      Add Goal
                   </Button>
               </Form>
             </div>

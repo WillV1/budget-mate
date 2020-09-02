@@ -5,17 +5,20 @@ import Button from 'react-bootstrap/Button';
 class LandingRegister extends React.Component {
 
     state = {
-        first: "",
-        last: "",
+        name: "",
         email: "",
         password: ""
     }
 
-    handleFormSubmit() {
-
+    handleFormSubmit = (event) => {
+        event.preventDefault()
     }
 
-    handleClick(event) {
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+    }
+
+    handleClick = (event) => {
         event.preventDefault();
     }
 
@@ -26,7 +29,8 @@ class LandingRegister extends React.Component {
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text"
                         placeholder="Enter name"
-                        onChange={(event => this.setState({ name: event.target.value }))}
+                        name="name"
+                        onChange={this.handleChange}
                         value={this.state.name}
                     />
                 </Form.Group>
@@ -35,7 +39,8 @@ class LandingRegister extends React.Component {
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email"
                         placeholder="Enter email"
-                        onChange={(event => this.setState({ email: event.target.value }))}
+                        name="email"
+                        onChange={this.handleChange}
                         value={this.state.email}
                     />
                 </Form.Group>
@@ -44,7 +49,8 @@ class LandingRegister extends React.Component {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password"
                         placeholder="Password"
-                        onChange={(event => this.setState({ password: event.target.value }))}
+                        name="password"
+                        onChange={this.handleChange}
                         value={this.state.password}
                     />
                     <Form.Text id="passwordHelpBlock" muted>

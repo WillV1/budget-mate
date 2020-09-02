@@ -9,8 +9,12 @@ class LandingLogin extends React.Component {
         password: ""
     }
 
-    handleFormSubmit() {
+    handleFormSubmit(event) {
+        event.preventDefault()
+    }
 
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     handleClick(event){
@@ -25,7 +29,7 @@ class LandingLogin extends React.Component {
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" 
                     placeholder="Enter email" 
-                    onChange={(event => this.setState({email:event.target.value}))}
+                    onChange={this.handleChange}
                     value={this.state.email}
                     />
                 </Form.Group>
@@ -34,7 +38,7 @@ class LandingLogin extends React.Component {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" 
                     placeholder="Password" 
-                    onChange={(event => this.setState({password:event.target.value}))}
+                    onChange={this.handleChange}
                     value={this.state.password}
                     />
                 </Form.Group>
