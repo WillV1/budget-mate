@@ -8,12 +8,20 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Landing from './pages/Landing';
 import Goals from './pages/Goals';
+import Alert from './components/Alert';
+//Redux
+import { Provider } from 'react-redux';
+import store from './store';
+
+import './App.css';
 
 function App() {
   return (
+    <Provider store={store}>
     <Router>
       <div>
         <Container>
+        <Alert />
           <Switch>
             <Route exact path="/add" component={AddBudgetItem} />
             <Route exact path="/view" component={ViewBudget} />
@@ -22,10 +30,11 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/" component={Landing} />
             <Route component={NotFound} />
-          </Switch>
+          </Switch> 
         </Container>
       </div>
     </Router>
+    </Provider>
   )
 }
 
