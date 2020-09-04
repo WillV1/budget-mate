@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const cors = require('cors');
+router.use(cors());
 const { check, validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');

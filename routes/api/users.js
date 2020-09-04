@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-var cors = require('cors');
+const cors = require('cors');
 router.use(cors());
 const { check, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
