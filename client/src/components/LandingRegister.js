@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -6,7 +7,7 @@ import {setAlert} from '../actions/alert';
 import {register} from '../actions/auth';
 import PropTypes from 'prop-types';
 
-const LandingRegister = ({setAlert, register}) => {
+const LandingRegister = ({setAlert, register, isAuthenticated}) => {
 
     const [formData, setFormData] = useState({
         name: "",
@@ -33,6 +34,11 @@ const LandingRegister = ({setAlert, register}) => {
     const onClick = (event) => {
   
     }
+
+    //Redirect if registed
+    if(isAuthenticated) {
+        return <Redirect to="/login" /> 
+     }
 
     return (
         <Form onSubmit={event => onSubmit(event)}>
@@ -93,7 +99,12 @@ const LandingRegister = ({setAlert, register}) => {
 
 LandingRegister.propTypes = {
     setAlert: PropTypes.func.isRequired,
-    register: PropTypes.func.isRequired
+    register: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
 };
 
-export default connect(null, {setAlert, register})(LandingRegister);
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, {setAlert, register})(LandingRegister);

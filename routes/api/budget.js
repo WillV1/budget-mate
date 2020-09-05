@@ -22,12 +22,11 @@ async (req, res) => {
    try {
     const user = await User.findById(req.user.id).select('-password');
 
-    const newItem = {
+    const newItem = new Budget({
         item: req.body.item,
         amount: req.body.amount,
-        name: user.name,
         user: req.user.id
-    }
+    });
 
     const item = await newItem.save();
 

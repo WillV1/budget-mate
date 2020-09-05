@@ -1,3 +1,8 @@
+body {
+   background:  #f6f8fb;
+   font-family: 'Lato', sans-serif;
+}
+
 .alert {
     padding: 0.8rem;
     margin: 1rem 0;
@@ -9,4 +14,24 @@
 .alert-danger {
     background: #F44336;
     color: #fff
+}
+
+.landing {
+    width: 50%;
+    margin-top: 5%;
+    background: #d9e3f0;
+}
+
+.welcome {
+    width: 35%;
+    margin-left: 0%;
+    margin-top: 5%;
+}
+
+.intro {
+    margin: 5%;
+}
+
+.goalButton {
+    margin-top: 2%;
 }

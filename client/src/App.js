@@ -7,7 +7,6 @@ import ViewBudget from './pages/ViewBudget';
 import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 import Landing from './pages/Landing';
-import Goals from './pages/Goals';
 import Alert from './components/Alert';
 //Redux
 import { Provider } from 'react-redux';
@@ -35,7 +34,6 @@ function App() {
           <Switch>
             <Route exact path="/add" component={AddBudgetItem} />
             <Route exact path="/view" component={ViewBudget} />
-            <Route exact path="/goals" component={Goals} />
             <Route exact path="/home" component={Welcome} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/" component={Landing} />

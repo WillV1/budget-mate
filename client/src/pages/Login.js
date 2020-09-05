@@ -1,13 +1,15 @@
 import React from 'react';
 import LandingLogin from '../components/LandingLogin';
 
+import Container from 'react-bootstrap/Container'
+
 
 const Login = () => {
     return (
-        <div>
+        <Container className="landing">
             <h1>Login Here</h1>
             <LandingLogin />
-        </div>
+        </Container>
     )
 }
 

@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const BudgetSchema = new Schema ({
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'users'
+        ref: 'user'
     },
     item: {
         

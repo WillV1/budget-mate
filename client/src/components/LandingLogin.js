@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
+import {Redirect} from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import {login} from '../actions/auth';
 
-const LandingLogin = () => {
+
+const LandingLogin = ({login, isAuthenticated}) => {
 
     const [loginData, setLoginData] = useState({
         email: "",
@@ -13,7 +18,7 @@ const LandingLogin = () => {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log('success')
+        login(email, password);
     }
 
     const onChange = (event) => setLoginData({ ...loginData, [event.target.name]: event.target.value });
@@ -22,7 +27,10 @@ const LandingLogin = () => {
 
     }
 
-
+//Redirect if logged in
+    if(isAuthenticated) {
+       return <Redirect to="/home" /> 
+    }
     return (
         <Form onSubmit={event => onSubmit(event)}>
 
@@ -52,4 +60,13 @@ const LandingLogin = () => {
     )
 }
 
-export default LandingLogin;
+login.propTypes = {
+    login: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool,
+}
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapStateToProps, {login})(LandingLogin);
